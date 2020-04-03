@@ -384,6 +384,6 @@ def docs():
 
 if __name__ == "__main__":
 
-    app.run(debug=True)
+    #app.run(debug=True)
     # Use gevent WSGI server and start the server
-    #WSGIServer((IP, PORT), app.wsgi_app).serve_forever()
+    WSGIServer((IP, PORT), app.wsgi_app).serve_forever()
