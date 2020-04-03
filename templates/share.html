@@ -1,0 +1,185 @@
+<!doctype html>
+
+	<head>
+	    <title>
+	    	Covid-19: Test Your Rota
+	    </title>
+
+		<link rel="shortcut icon" href="/static/logo/cov_logo2.png" />
+
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	</head>
+
+	<body>
+
+		<header>
+			<section id="pageContent">
+				<div id="logo"><img src="/static/logo/cov_logo.png"> <a href="/">COVID-19: Simulate Staffing Levels</a></div>
+			</section>
+		</header>
+
+		<section id="pageContent">
+			<main role="main">
+
+				<block>
+
+				<block>
+
+					<table id="header_table">
+						<tbody>
+							<tr>
+								<td rowspan="2"><div id="logo_pic"><img src="/static/logo/TUOS.png"></div> </td>
+								<td><h1>Share Your Rota</h1></td>
+							</tr>
+
+							<tr>
+								<td><h4>Tested Parameters by Other Institudes</h4></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</block>
+	
+				<block>	
+
+					<h2>Abbreviation</h2>
+
+				</block>		
+						
+				<block>	
+					<table class='abbreviation'>
+						<tbody>
+							<tr>
+								<td>
+									<ul>
+										<li>Total Number of Staff: <b>TnS</b></li>
+										<li>Length of Shifts: <b>LoS</b></li>
+										<li>Number of Area: <b>NoA</b></li>
+										<li>Daily Infection Rate - Off Work: <b>DiR</b></li>
+										<li>Critical Area: <b>CA</b></li>
+										<li>Critical Staff Number: <b>CsN</b></li>
+										<li>Infection Rate at Work: <b>IrW</b></li>
+										<li>Days Off per Shift: <b>DoS</b></li>
+									</ul>
+								</td>
+
+								<td>
+									<ul>
+									  <li>Accident and emergency: <b>ACC</b></li>
+									  <li>Acute medical Unit/medical ward: <b>ACU</b></li>
+									  <li>Acute surgical unit/surgical ward: <b>ASU</b></li>
+									  <li>Specialist medical team: <b>SMT</b></li>
+									  <li>Specialist surgical team: <b>SST</b></li>
+									  <li>Laboratory: <b>LAB</b></li>
+									  <li>Non-healthcare: <b>NHH</b></li>
+									</ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</block>								
+
+				<block>	
+
+					<h2>Parameter Table:</h2>
+
+				</block>	
+
+				<block>	
+
+					<div class="share_table">
+						{{table_html|safe}}
+					</div>
+
+				</block>		
+
+			</main>
+
+			<aside>
+
+				<div>
+					<aside_header>
+						Links:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="http://sitran.org/people/alix/">Personal Page - Dr James Alix</a></li>
+								<li><a href="https://www.sheffield.ac.uk/acse/people/vk">Personal Page - Professor Visakan Kadirkamanathan</a></li>
+								<li><a href="https://www.sheffield.ac.uk/">University of Sheffield (UoS)</a></li>
+								<li><a href="https://www.sheffield.ac.uk/it-services/research">UoS - It Services/Research IT</a></li>
+							</ul>
+						</p>
+					</aside_body>
+				</div>
+				<hr/>
+				<div>
+
+					<aside_header>
+						References:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="https://annals.org/AIM/FULLARTICLE/2762808/INCUBATION-PERIOD-CORONAVIRUS-DISEASE-2019-COVID-19-FROM-PUBLICLY-REPORTED">Lauer, Stephen A., et al., Annals of Internal Medicine (2020).</a></li>
+
+								<li><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2001316">Li, Qun, et al., New England Journal of Medicine (2020).</a></li>
+
+								<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/32064853">Novel, Coronavirus Pneumonia Emergency Response Epidemiology., Zhonghua liuxingbingxue zazhi 41.2 (2020): 145.</a></li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+				<hr/>
+				<div>
+					<aside_header>
+						Contact:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr James Alix</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+				<hr/>
+				<div>
+					<aside_header>
+						Acknowledgement:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr Daniel Blackburn</li>
+								<li>Dr Norbert Gyenge</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+			</aside>
+
+		</section>
+
+		<footer>
+
+		</footer>
+
+	</body>
+
+</html>
+
+
+
+
+
+

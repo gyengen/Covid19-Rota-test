@@ -1,0 +1,197 @@
+<!doctype html>
+
+	<head>
+	    <title>
+	    	Covid-19: Test Your Rota
+	    </title>
+
+		<link rel="shortcut icon" href="/static/logo/cov_logo2.png" />
+
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	</head>
+
+	<body>
+
+		<header>
+			<section id="pageContent">
+				<div id="logo"><img src="/static/logo/cov_logo.png"> <a href="/">COVID-19: Simulate Staffing Levels</a></div>
+			</section>
+		</header>
+
+		<section id="pageContent">
+			<main role="main">
+
+				<block>
+
+				<block>
+
+					<table id="header_table">
+						<tbody>
+							<tr>
+								<td rowspan="2"><div id="logo_pic"><img src="/static/logo/TUOS.png"></div> </td>
+								<td><h1>Infection Rate</h1></td>
+							</tr>
+
+							<tr>
+								<td><h4>Estimation</h4></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</block>
+	
+				<block>	
+
+					<h2>Daily Infection Rate</h2>
+
+					<p>First, you can calculate a daily infection rate among your staff. Simply enter the details required.</p>
+
+				</block>					
+
+				<form method="post" id="formID">
+
+					<block>
+					    <div class='in_table'>
+							<div class=in_row>
+								<div class='in_cell_label'>Total Number of Staff:</div>
+								<div class='in_cell_input'><input name="e1" value="{{ep[0]}}"></div>
+							</div>
+
+							<div class=in_row>
+								<div class='in_cell_label'>Total Number Infected:</div>
+								<div class='in_cell_input'><input name="e2" value="{{ep[1]}}"></div>
+							</div>
+
+							<div class=in_row>
+								<div class='in_cell_label'>Time:</div>
+								<div class='in_cell_input'><input name="e3" value="{{ep[2]}}"></div>
+							</div>
+					    </div>
+	
+						<p>
+							{% with messages = get_flashed_messages() %}
+							  {% if messages %}
+								<ul class=flashes>
+								{% for message in messages %}
+								  <li>{{ message }}</li>
+								{% endfor %}
+								</ul>
+							  {% endif %}
+							{% endwith %}
+						</p>
+
+					</block>
+
+						{% if di != '' %}
+
+						<block>
+							
+							The estimated daily infection rate is: <b>{{'%.2f' % di}} %</b>
+
+						    <p>
+								<input class="input" type="submit" value="Recalculate" id="formID">
+							</p>
+
+						</block>
+
+						{% else %}
+
+						    <p>
+								<input class="input" type="submit" value="Calculate" id="formID">
+							</p>
+
+						{% endif %}
+
+					</block>
+				</form>
+
+			</main>
+
+			<aside>
+
+				<div>
+					<aside_header>
+						Links:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="http://sitran.org/people/alix/">Personal Page - Dr James Alix</a></li>
+								<li><a href="https://www.sheffield.ac.uk/acse/people/vk">Personal Page - Professor Visakan Kadirkamanathan</a></li>
+								<li><a href="https://www.sheffield.ac.uk/">University of Sheffield (UoS)</a></li>
+								<li><a href="https://www.sheffield.ac.uk/it-services/research">UoS - It Services/Research IT</a></li>
+							</ul>
+						</p>
+					</aside_body>
+				</div>
+				<hr/>
+				<div>
+
+					<aside_header>
+						References:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="https://annals.org/AIM/FULLARTICLE/2762808/INCUBATION-PERIOD-CORONAVIRUS-DISEASE-2019-COVID-19-FROM-PUBLICLY-REPORTED">Lauer, Stephen A., et al., Annals of Internal Medicine (2020).</a></li>
+
+								<li><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2001316">Li, Qun, et al., New England Journal of Medicine (2020).</a></li>
+
+								<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/32064853">Novel, Coronavirus Pneumonia Emergency Response Epidemiology., Zhonghua liuxingbingxue zazhi 41.2 (2020): 145.</a></li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+				<hr/>
+				<div>
+					<aside_header>
+						Contact:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr James Alix</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+				<hr/>
+				<div>
+					<aside_header>
+						Acknowledgement:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr Daniel Blackburn</li>
+								<li>Dr Norbert Gyenge</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+			</aside>
+
+		</section>
+
+		<footer>
+
+		</footer>
+
+	</body>
+
+</html>
+
+
+
+
+
+

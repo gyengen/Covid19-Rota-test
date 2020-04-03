@@ -1,0 +1,241 @@
+<!doctype html>
+
+	<head>
+	    <title>
+	    	Covid-19: Test Your Rota
+	    </title>
+
+		<link rel="shortcut icon" href="/static/logo/cov_logo2.png" />
+		
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	</head>
+
+	<body>
+
+		<header>
+			<section id="pageContent">
+				<div id="logo"><img src="/static/logo/cov_logo.png"> <a href="/">COVID-19: Simulate Staffing Levels</a></div>
+			</section>
+		</header>
+
+		<section id="pageContent">
+			<main role="main">
+
+				<block>
+
+				<block>
+
+					<table id="header_table">
+						<tbody>
+							<tr>
+								<td rowspan="2"><div id="logo_pic"><img src="/static/logo/TUOS.png"></div> </td>
+								<td><h1>Share Your Rota</h1></td>
+							</tr>
+
+							<tr>
+								<td><h4>Additional information</h4></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</block>
+	
+				<block>	
+
+					<h2>Rota Parameters by Other Users/Institutes</h2>
+
+					<p>Please define the <b>type of your department</b>. Please choose an option which describes best your working environment. If you wish, leave a comment about the results of your simulation.</p>
+	
+				</block>
+
+				<form method="post" id="formID">
+					<block>
+
+						<block>
+							<label for="formID">Type of Department/Area of Work:</label>
+
+							<select name="dep_type" id="formID">
+								  <option value="ACC">Accident and Emergency</option>
+								  <option value="ACU">Acute Medical Unit/Medical Ward</option>
+								  <option value="ASU">Acute Surgical Unit/Surgical Ward</option>
+								  <option value="SMT">Specialist Medical Team</option>
+								  <option value="SST">Specialist Surgical Team</option>
+								  <option value="LAB">Laboratory</option>
+								  <option value="NHH">Non-Healthcare</option>
+							</select>
+						</block>
+
+						<block>
+							<label for="lname">Notes:&emsp;</label>
+							<div class='comment'><input type="text" id="formID" name="notes"></div>
+						</block>
+
+					</block>
+
+	  				<block>
+
+						<h2>Review</h2>
+
+						<p>To help us improve, we would like to ask you a <b>few question about the service</b>. The survey is anonymous and we do not publish your answers in any way. If you not wish to participate in the survey, leave the answares blank and send your parameters by pression the option "Share Parameters" below.</p>
+
+					</block>
+
+	  				<block>
+							<label for="formID">Appearance:</label>
+
+							<select name="Appearance" id="formID">
+								<option value="NA">No answer</option>
+								<option value="5">Very Satisfied = 5</option>
+								<option value="4">Satisfied = 4</option>
+								<option value="3">Neutral = 3</option>
+								<option value="2">Dissatisfied = 2</option>
+								<option value="1">Very Dissatisfied = 1</option>
+							</select>
+
+					</block>
+
+	  				<block>
+
+							<label for="formID">Usability:&emsp; &nbsp;</label>
+
+							<select name="Usability" id="formID">
+								<option value="NA">No answer</option>
+								<option value="5">Very Satisfied = 5</option>
+								<option value="4">Satisfied = 4</option>
+								<option value="3">Neutral = 3</option>
+								<option value="2">Dissatisfied = 2</option>
+								<option value="1">Very Dissatisfied = 1</option>
+							</select>	
+
+					</block>
+
+	  				<block>
+
+							<label for="formID">Usefulness:&ensp;</label>
+
+							<select name="usefulness" id="formID">
+								<option value="NA">No answer</option>
+								<option value="5">Very Satisfied = 5</option>
+								<option value="4">Satisfied = 4</option>
+								<option value="3">Neutral = 3</option>
+								<option value="2">Dissatisfied = 2</option>
+								<option value="1">Very Dissatisfied = 1</option>
+							</select>
+
+					</block>
+
+					<block>
+						<label for="lname">Comment:&emsp;</label>
+						<div class='comment'><input type="text" id="formID" name="comment_review"></div>
+					</block>
+
+					<block>
+
+						<p>
+							{% with messages = get_flashed_messages() %}
+							  {% if messages %}
+								<ul class=flashes>
+								{% for message in messages %}
+								  <li>{{ message }}</li>
+								{% endfor %}
+								</ul>
+							  {% endif %}
+							{% endwith %}
+						</p>
+
+						<input class="input" type="submit" name="share" value="Share Parameters" id="formID">
+
+					</block>
+
+				</form>
+
+			</main>
+
+			<aside>
+
+				<div>
+					<aside_header>
+						Links:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="http://sitran.org/people/alix/">Personal Page - Dr James Alix</a></li>
+								<li><a href="https://www.sheffield.ac.uk/acse/people/vk">Personal Page - Professor Visakan Kadirkamanathan</a></li>
+								<li><a href="https://www.sheffield.ac.uk/">University of Sheffield (UoS)</a></li>
+								<li><a href="https://www.sheffield.ac.uk/it-services/research">UoS - It Services/Research IT</a></li>
+							</ul>
+						</p>
+					</aside_body>
+				</div>
+				<hr/>
+				<div>
+
+					<aside_header>
+						References:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="https://annals.org/AIM/FULLARTICLE/2762808/INCUBATION-PERIOD-CORONAVIRUS-DISEASE-2019-COVID-19-FROM-PUBLICLY-REPORTED">Lauer, Stephen A., et al., Annals of Internal Medicine (2020).</a></li>
+
+								<li><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2001316">Li, Qun, et al., New England Journal of Medicine (2020).</a></li>
+
+								<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/32064853">Novel, Coronavirus Pneumonia Emergency Response Epidemiology., Zhonghua liuxingbingxue zazhi 41.2 (2020): 145.</a></li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+				<hr/>
+				<div>
+					<aside_header>
+						Contact:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr James Alix</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+				<hr/>
+				<div>
+					<aside_header>
+						Acknowledgement:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr Daniel Blackburn</li>
+								<li>Dr Norbert Gyenge</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+			</aside>
+
+		</section>
+
+		<footer>
+
+		</footer>
+
+	</body>
+
+</html>
+
+
+
+
+
+

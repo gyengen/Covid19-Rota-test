@@ -1,0 +1,213 @@
+<!doctype html>
+
+	<head>
+	    <title>
+	    	Covid-19: Test Your Rota
+	    </title>
+
+		<link rel="shortcut icon" href="/static/logo/cov_logo2.png" />
+
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162703489-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-162703489-1');
+		</script>
+
+	</head>
+
+	<body>
+
+		<header>
+			<section id="pageContent">
+				<div id="logo"><img src="/static/logo/cov_logo.png"> <a href="/">COVID-19: Simulate Staffing Levels</a></div>
+			</section>
+		</header>
+
+		<section id="pageContent">
+			<main role="main">
+
+				<block>
+
+					<table id="header_table">
+						<tbody>
+							<tr>
+								<td rowspan="2"><div id="logo_pic"><img src="/static/logo/TUOS.png"></div> </td>
+								<td><h1>COVID-19: Rota Test</h1></td>
+							</tr>
+
+							<tr>
+								<td><h4>Simulate what happens to staffing levels over time under different rates of staff infection.</h4></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</block>
+
+				<block>
+
+					<h2>About the Project</h2>
+
+					<p>We have noticed that staff working on frontline services, such as healthcare workers, are becoming infected or self-isolating and this is placing great strain on the service they provide. To <b>enable those in charge of rotas to see what happens under different scenarios</b> we have created this web app. Like any model is it based on some assumptions, however, where possible we have used available data (e.g. see references to the right).</p>
+
+				</block>
+
+				<block>
+
+					<p>If you would like to <b>share information</b> on staff infection rates in your area, please contact us and we will post the data. We will NOT share your name, location or institution, although we will share the working environment e.g. emergency unit, intensive care, delivery service etc.</p>
+
+				</block>
+				
+				<block>
+
+					<p> We also provide a page for you to <b>share the parameters of your simulation</b> if you wish. Many of you will have innovative ways of working that others can benefit from.</p>
+
+				</block>
+				
+				<block>
+
+					<p>We are continuing to develop our model. If you would like to <b>help us</b> in any way or provide feedback on the model or web app, please to contact us. We are trying to encourage debate in this area. If you can do better, please do so and tell us about it so we can post your efforts!</p>
+
+				</block>
+
+				<block>
+					<h2>More Information</h2>
+
+					<p>Please visit our documentation to see details about the employed model and web app or check the published rota data by other instutudes and induviduals. If you wish to start your own simulation, see below.</p>
+				</block>
+
+				<block>
+					<table class='icon_row'>
+						<tbody>
+							<tr>
+								<td><button class = 'icon' onclick="window.location.href = '/docs';"><img src="/static/icon/docs.png"><br>Documentation</button></td>
+								<td><button class = 'icon' onclick="window.location.href = '/share';"><img src="/static/icon/data.png"><br>Rota Database</button></td>
+								<td><button class = 'icon' onclick="window.location.href = 'mailto:j.alix@sheffield.ac.uk';"><img src="/static/icon/mail.png"><br>Contact Us</button></td>
+								<td><button class = 'icon' onclick="window.location.href = '/';"><img src="/static/icon/source.png"><br>Source Code</button></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</block>
+
+
+				<block>
+
+					<h2>Run Your Own Simulation</h2>
+
+					<p>This service <b>does not replace or change local guidelines</b> on infection control measures such as social distancing, self-isolation, hand washing, personal protective equipment or contract tracing. Follow your local guidance and stay safe!</p>
+
+				</block>
+
+				<block>
+					<form method="post">
+						<input type="checkbox" name="check" value="agree">
+						<label for="check">I agree to these terms and wish to continue.</label><br>
+						<p>
+							{% with messages = get_flashed_messages() %}
+							  {% if messages %}
+								<ul class=flashes>
+								{% for message in messages %}
+								  <li>{{ message }}</li>
+								{% endfor %}
+								</ul>
+							  {% endif %}
+							{% endwith %}
+						</p>
+						<input class="input" type="submit" value="Agree">
+					</form>
+				</block>
+
+			</main>
+
+			<aside>
+
+				<div>
+					<aside_header>
+						Links:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="http://sitran.org/people/alix/">Personal Page - Dr James Alix</a></li>
+								<li><a href="https://www.sheffield.ac.uk/acse/people/vk">Personal Page - Professor Visakan Kadirkamanathan</a></li>
+								<li><a href="https://www.sheffield.ac.uk/">University of Sheffield (UoS)</a></li>
+								<li><a href="https://www.sheffield.ac.uk/it-services/research">UoS - It Services/Research IT</a></li>
+							</ul>
+						</p>
+					</aside_body>
+				</div>
+				<hr/>
+				<div>
+
+					<aside_header>
+						References:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="https://annals.org/AIM/FULLARTICLE/2762808/INCUBATION-PERIOD-CORONAVIRUS-DISEASE-2019-COVID-19-FROM-PUBLICLY-REPORTED">Lauer, Stephen A., et al., Annals of Internal Medicine (2020).</a></li>
+
+								<li><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2001316">Li, Qun, et al., New England Journal of Medicine (2020).</a></li>
+
+								<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/32064853">Novel, Coronavirus Pneumonia Emergency Response Epidemiology., Zhonghua liuxingbingxue zazhi 41.2 (2020): 145.</a></li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+				<hr/>
+				<div>
+					<aside_header>
+						Contact:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr James Alix</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+				<hr/>
+				<div>
+					<aside_header>
+						Acknowledgement:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr Daniel Blackburn</li>
+								<li>Dr Norbert Gyenge</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+			</aside>
+
+		</section>
+
+		<footer>
+
+		</footer>
+
+	</body>
+
+</html>
+
+
+
+
+

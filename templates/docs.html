@@ -1,0 +1,605 @@
+<!doctype html>
+
+	<head>
+	    <title>
+	    	Covid-19: Test Your Rota
+	    </title>
+
+		<link rel="shortcut icon" href="/static/logo/cov_logo2.png" />
+
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	</head>
+
+	<body onload="opentab(event, 'plain')">
+
+		<header>
+			<section id="pageContent">
+				<div id="logo"><img src="/static/logo/cov_logo.png"> <a href="/">COVID-19: Simulate Staffing Levels</a></div>
+			</section>
+		</header>
+
+		<section id="pageContent">
+			<main role="main">
+
+				<block>
+
+					<table id="header_table">
+						<tbody>
+							<tr>
+								<td rowspan="2"><div id="logo_pic"><img src="/static/logo/TUOS.png"></div> </td>
+								<td><h1>COVID-19: Rota Test</h1></td>
+							</tr>
+
+							<tr>
+								<td><h4>Dodumentation</h4></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</block>
+
+				<block>
+
+					<div class="tab">
+					  <button class="tablinks" onclick="opentab(event, 'plain')"><h2>1) Simple Description</h2></button> 
+					  <button class="tablinks" onclick="opentab(event, 'detail')"><h2>2) Technical Description</h2></button>
+					  <button class="tablinks" onclick="opentab(event, 'improve')"><h2>3) Improve Staff Leveling</h2></button>
+					</div>
+
+				</block>
+
+				<block>
+					<div id="plain" class="tabcontent">
+
+						<block>
+
+							<h2>Simple Explanation How the Model Works</h2>
+
+							<p>The model thinks that:</p>
+
+						</block>
+
+						<block>
+
+							<ul>
+								<li>The average (median) incubation time between exposure and symptoms is 5 days. It accounts for variation in this though.</li>
+
+								<li>After symptoms have started, 80% of staff have a mild illness and can return after 14 days. There is some variation built-in for staff coming back between 7-14 days. </li>
+
+								<li>97% of all staff are back after 6 weeks. They are gradually re-introduced into the available workforce. </li>
+
+								<li>3% do not return to work within the time period of the analysis.</li>
+
+								<li>It is not possible to be infected twice.</li>
+							</ul>	
+
+						</block>
+
+						<block>
+
+							<p>If you have <b>multiple areas to cover</b>, you can vary the infection rate between them. For example, working on a hospital ward would have a higher infection rate than working in an office on your own. If you have one critical area that you must have a certain number of staff in, you can specify that. The model will then draw staff from other areas to support the critical one. The results are presented as a series of graphs. As the model is run many times, on the graphs there is a line representing the mean and a shaded area, representing the 95% confidence interval.</p>
+
+						</block>
+
+						<block>
+
+							<h2>Instructions</h2>
+
+							<p>First, you can calculate a <b>daily infection rate among your staff</b>. Simply enter the details required about how many staff you have in total, how many are infected and/or self-isolating, the amount of time in days between the first infection in your workplace (staff or other e.g. patient).</p>
+
+
+						</block>
+
+						<block>
+
+							<p>If you don’t have anything to enter, you can choose a daily infection rate. Some examples and what they mean over different time periods are provided in the grid.</p>
+
+
+						</block>
+
+						<block>
+
+							<h4>Specify how many staff you have.</h4>
+
+						</block>
+
+						<block>
+
+							<h4>Say how many areas you must cover.</h4>
+
+						</block>
+
+						<block>			
+							<ul>
+
+							<li>These can be physical areas, such as wards. For example, if you had 2 wards you would enter “2”. Or they could be shifts on a ward e.g. day, evening, nights. If you were looking at that, you would enter “3”.</li>
+
+							</ul>
+						</block>
+
+						<block>
+
+							<h4>Set the length of your shifts in days.</h4>
+
+						</block>		
+					
+						<block>		
+
+							<ul>
+
+								<li>If you are maintaining the working week of Monday – Friday with Saturday/Sunday off, then enter “7”. This is because you are working a 7-day pattern. If you are working a 10-day pattern, then you enter “10” and so on.</li>
+						
+								<li>You will be asked later on to specify the number of days off. So, if you have a 7-day working pattern but are only working Monday-Friday, then for the days off box which will appear later, you enter “2”.</li>
+
+								<li>You can enter different numbers of days off for each shift. For example, if you are working a 7-day pattern then: Your number of groups = 2.</li>			
+
+								<li>Two days off boxes will appear: you enter “3” and “4”, respectively.</li>	
+
+							</ul>
+
+						</block>		
+					
+						<block>		
+							<h4>Say if you have a critical area to maintain.</h4>
+
+						</block>		
+					
+						<block>		
+
+							<ul>
+								<li>If you do, you need to enter the number of staff you wish to always have available in this area. The model will then supplement staff from other areas to maintain this as best it can.</li>
+							</ul>
+					
+						</block>	
+
+						<block>
+
+							<h2>The graphs</h2>
+
+							<p>Several graphs will appear. The first shows the total number of staff available over time, together with the number of staff unavailable over time.The others show the number of staff available in each area. If you have set a critical staff level on one of the areas this will show up as a dotted line on the graph for that area. As the model is run many times, on the graphs there is a line representing the mean and a shaded area, representing the 95% confidence interval.</p>
+
+						</block>
+					
+						<block>
+
+							<h2>The limitations</h2>
+
+							<p>As for any model there are limitations. For example: (1) We do not know specific infection rates for different work areas, or even for those staying at home. (2) We do not know how the infection rates change over time. At present the infection risk is held constant. That may not be the case though.</p>
+
+						</block>
+
+						<block>
+
+							<h2>For example:</h2>
+
+							<p>A hospital ward may start off with only a few COVID+ patients and then have lots. This would increase the exposure risk, but we don’t yet know by how much. This scenario gets more complicated if you consider that alongside the increasing number of patients, more stringent hygiene or personal protective equipment measures might be instigated. These might act to reduce the risk, but again, we don’t know by how much. We do have exponential and sigmoidal increases in staff infection rate available which we can share with you if you would like it. </p>
+
+						</block>
+					</div>
+
+					<div id="improve" class="tabcontent">
+
+						<block>
+
+							<h2>Suggestions on Improving Performance on Staff Leveling</h2>
+
+							<p>When looking at the output for your rota you may notice a struggle to maintain the staff levels you require. Without additional staff members there is no quick fix to this. However, there are small changes that can be made to your rota, which could have a positive effect.</p>
+
+						</block>
+
+						<block>
+
+							<p>1) Change the <b>shift length</b>, this is the number of days between each staff rotation.</p>
+
+						</block>
+
+
+						<block>
+
+							<p>The following shows an example rota, rotating through 3 areas on either a 7-day or 10-day shift pattern.</p>
+
+						</block>
+
+						<block>
+
+							<ul>
+								<li><b>Total Number of Staff:</b> 30</li>
+								<li><b>Length of Shifts [days]</b>: 7 or 10</li>
+								<li><b>Number of Areas:</b> 3</li>
+								<li><b>Daily Infection Rate - Off Work [%]:</b> 0.5</li>
+							</ul>
+						</block>
+
+
+						<block>
+							<ul>
+								<li><b>Daily Infection Rate at Work</b> (Area 1 - Area 2 - Area 3): 8 - 2 - 2</li>
+								<li><b>Days Off per Shift</b> (Area 1 - Area 2 - Area 3): 0 - 0 - 2</li>
+							</ul>
+						</block>
+
+
+						<block>
+							<ul>
+								<li><b>Number of Critical Areas:</b> 40</li>
+								<li><b>Critical Number of Staff:</b> 7</li>
+							</ul>
+
+						</block>
+
+
+						<block>
+							<p><img src="/static/fig/s1.png" class='docs'></p>
+						</block>
+
+
+						<block>
+							<p><img src="/static/fig/s2.png" class='docs'></p>
+						</block>
+
+						<block>
+
+							<p>We can observe that by increasing the shift length from 7 to 10 days gives a <b>slight improvement</b>. The minimum number of staff seen is increased from <b>12 to 14 people</b>. For each scenario there will be an optimum shift length, which gives best performance. This will vary depending on your other parameters, so you could <b>try both increasing and decreasing the length of your shift</b> to see what happens.</p>
+
+						</block>
+
+						<block>
+
+							<p>2) Change how many <b>days off</b> your staff members are given.</p>
+
+						</block>
+
+						<block>
+
+							<p>The following shows the example of a rota, where each area either has <b>0 or 2 days off per shift</b>. </p>
+
+						</block>
+
+						<block>
+							<h4>0 Days Off pear Area</h4>
+							<p><img src="/static/fig/s3.png" class='docs'></p>
+
+						</block>
+
+						<block>
+							<h4>2 Days Off pear Area</h4>
+							<p><img src="/static/fig/s4.png" class='docs'></p>
+
+						</block>
+
+
+						<block>
+
+							<p>Giving the staff more days off every week <b>reduces the magnitude</b> of the maximum infected peak. Overall you will have less people available to work as more staff will be taking days off, but this could be worth it if you end up with a lower proportion of your work force off work at once.</p>
+
+						</block>
+
+						<block>
+
+							<p>3) Change the <b>order of the areas</b> (e.g. rotate staff through the different types of work in a different order) </p>
+
+						</block>
+
+
+						<block>
+
+							<p>If you have numerous work areas, which are running at different infection risks and have different numbers of days off you could try <b>changing the order of your areas</b>. The model will automatically rotate staff from Area 1 to Area 2, Area 2 to Area 3 etc. So, by swapping the input parameters for two different areas you will see a different order of rotation (the inputs below show the parameters for Area 2 and Area 3 switching).</p>
+
+						</block>
+
+
+						<block>
+							<ul>
+								<li><b>Daily Infection Rate at Work</b> (Area 1 - Area 2 - Area 3 - Area 3): 8 - 2 - 0.5 - 0.5</li>
+								<li><b>Days Off per Shift</b> (Area 1 - Area 2 - Area 3 - Area 3): 0 - 3 - 2 - 4</li>
+							</ul>
+						</block>
+
+
+						<block>
+
+							<p>4) Change the <b>number of areas</b>, for example by combining two areas into one, or splitting an area up.</p>
+
+						</block>
+
+						<block>
+
+							<p>If you have a <b>high-risk area</b> which runs over the full shift length (say 8 days) with no days off, </p>
+
+						</block>
+
+						<block>
+							<ul>
+								<li><b>Daily Infection Rate at Work</b> (Area 1 - Area 2 - Area 3): 8 - 0.5 - 2 - 0.5</li>
+								<li><b>Days Off per Shift</b> (Area 1 - Area 2 - Area 3): 0 - 2 - 3 - 4</li>
+							</ul>
+						</block>
+
+
+						<block>
+
+							<p>If you have a high-risk area which runs over the full shift length (say 8 days) with no days off, you could try <b>splitting that area into two</b>. Both areas could work for 4 days and be off work for 4 days. This means staff members don’t have to work for so many days at once. The model will show you how staff infection levels will respond to this change. </p>
+						</block>
+
+
+						<block>
+
+							<p><b>You could run the model for a few different scenarios</b>, using any of these suggestions or your own ideas, and maybe you will come up with an improved way to rota your staff. This web application allows you to save the outputted graphs to your computer to help you compare different scenarios. </p>
+
+						</block>
+
+					</div>
+
+
+					<div id="detail" class="tabcontent">
+
+						<block>
+
+						 	<h2>Technical Details About the Employed Algorithm</h2>
+
+						  	<ul>
+								<li><b>N</b> = Total number of staff</li>
+								<li><b>n</b> = Length of shift </li>
+								<li><b>P</b> = number of areas</li>
+								<li><b>inf_off</b> = Daily infection rate off work</li>
+								<li><b>inf_1</b> = Daily infection rate AREA n, where n = 1,2,3...</li>
+								<li><b>daysOff_1</b> = Days off per shift AREA n, where n = 1,2,3...</li>
+								<li><b>crit</b> = critical area (Optional)</li>
+								<li><b>lim</b> = critical staff number (Optional)</li>
+						  	</ul>
+
+						</block>
+
+						<block>
+
+							<table class='pc'>
+								<tr>
+									<td>
+										<div class='p_lev0'>Model is run for a total of <b>T days</b> </div>
+										<br>
+										<div class='p_lev0'>Loop through <b>N</b> staff:</div>
+											<div class='p_lev1'>Loop through <b>(T/n)</b> days: </div>
+												<br>
+												<div class='p_lev2'>Store which area they are in.</div>
+												<div class='p_lev2'>First<b> N/P</b> staff start in <b>AREA 1</b>, next<b> N/P</b> staff start in <b>AREA 2</b> etc... </div>
+												<br>
+												<div class='p_lev2'>For <b>AREA p</b> they work for <b>(n – daysOff_p)</b> days and are off work for <b>daysOff_p</b> days</div>.
+												<div class='p_lev2'>Rotate to <b>AREA p+1</b>. </div>
+												<br>
+												<div class='p_lev2'>Loop through <b>(n – daysOff_p)</b> days:  </div>
+													<div class='p_lev3'>Generate a random number between <b>0 and 100</b>, if this is <= <b>inf_p</b>: </div>
+														<div class='p_lev4'>Infection day is set to current day, store this day as infect </div>
+												<br>
+												<div class='p_lev2'>Loop through <b>daysOff_p</b> days:  </div>
+													<div class='p_lev3'>Generate a random number between 0 and 100, if this is <= <b>inf_off</b>: </div>
+														<div class='p_lev4'>Infection day is set to current day, store this day as infect </div>
+												<br>		
+												<div class='p_lev2'>Incubation period is randomly selected and stored as incubate </div>
+												<div class='p_lev2'>(Selected from a list of values, see graphs below)  </div>
+												<br>
+												<div class='p_lev2'>The staff availability is then stored as </div>
+												<div class='p_lev2'>- <b>1</b> for first (incubate + infect) days </div>
+												<div class='p_lev2'>- <b>0</b> for next 14 days </div>
+												<div class='p_lev2'>- increasing between <b>0.8</b> and <b>0.97</b> for next 6 weeks  </div>
+												<div class='p_lev2'>- <b>0.97</b> there after </div>
+									</td>
+								</tr>
+							</table>
+
+						</block>
+
+
+						<block>
+							<p>Information on the availability of every staff member on every day between 0 and T is then stored, as well as information on which area they are in on each day. This can then be used to calculate the total number available in every area over the time period.</p>
+						</block>
+
+						<block>				
+							<p>If the parameters crit and min are inputted continue.</p>
+						</block>
+
+
+						<block>
+							<table class='pc'>
+								<tr>
+									<td>
+										<div class='p_lev0'><b>If</b> the number available in <b>AREA crit</b> drops below lim at any point:</div>
+										<br>
+										<div class='p_lev1'>Staff from another area are moved to <b>AREA crit</b> to make up the numbers on that day (where possible)</div>
+										<div class='p_lev1'>Staff are moved when on a day off as a priority. <b>If not</b>, they are moved from working in another area.</div>
+										<br>
+											<div class='p_lev2'><b>If</b> the staff member that has been moved has not already been infected: </div>
+												<div class='p_lev3'>The probability of them being infected in the cover area <b>crit shift</b> is calculated.</div>
+												<div class='p_lev3'><b>If</b> they get infected here:</div>
+													<div class='p_lev4'>The day this staff member becomes infected is changed to the current day</div>
+												<div class='p_lev3'><b>else</b></div>
+													<div class='p_lev4'>The day they become infected stays as the original</div>
+									</td>
+								</tr>
+							</table>
+						</block>
+
+						<block>
+							<p>The availability of all staff members across the time period is recalculated using the updated infection times.</p>
+						</block>
+
+
+						<block>
+
+							<h2>Visualisation</h2>
+
+							<p>The model is <b>run 100 times</b>. Plots are made showing the mean data with <b>95% confidence intervals</b> (calculated using percentiles).</p>
+						</block>
+
+						<block>
+							<p>Plots made for:</p>
+								<ul>
+									<li>Total staff available against time,</li>
+									<li>Total staff working in <b>AREA 1</b> against time,</li>
+									<li>Total staff working in <b>AREA 2</b> against time,</li>
+									<li>Total staff working in <b>AREA 3</b> against time,</li>
+									<li>Total staff working in <b>AREA ...</b> against time,</li>
+									<li>Total staff working in <b>AREA n</b> against time.</li>
+								</ul>
+						</block>
+
+						<block>
+							<img src="/static/fig/fig1.png" class='docs' style="width: 400px;">
+							<img src="/static/fig/fig2.png" class='docs'>
+							<p>Incubation period data used, which has been fitted to data collected in <b>Lauer et al. (2020)</b></p>
+						</block>
+
+						<block>
+							<h2>Example</h2>
+
+							<p>Model run with <b>40 staff, 7-day shifts, 0.5% daily infection rate</b> for days off work.</p>
+							<p><b>AREA 1:</b> 5% daily infection rate, 0 days off per shift.</p>
+							<p><b>AREA 2:</b> 1% daily infection rate, 2 days off per shift.</p>
+						</block>
+
+						<block>
+							<img src="/static/fig/fig3.png" class='docs'>
+						</block>
+
+						<block>
+							<p><b>Critical Staff Number: 10</b></p>
+							<img src="/static/fig/fig4a.png" class='docs'>
+							<img src="/static/fig/fig4c.png" class='docs'>
+
+							<p><b>Critical Staff Number: 15</b></p>
+							<img src="/static/fig/fig4b.png" class='docs'>
+							<img src="/static/fig/fig4d.png" class='docs'>
+						</block>
+
+						<block>
+							<img src="/static/fig/fig5a.png" class='docs'>
+							<img src="/static/fig/fig5b.png" class='docs'>
+							<img src="/static/fig/fig5c.png" class='docs'>
+							<img src="/static/fig/fig5d.png" class='docs'>
+						</block>
+
+						<block>
+							<h2>Infection rate table</h2>
+							<img src="/static/fig/tab1.png" class='docs' style="width: 500px;">
+						</block>
+
+						<block>
+							<h2>Rotation of staff explained</h2>
+							<img src="/static/fig/fig6.png" class='docs'>
+						</block>
+					</div>
+				</block>
+			</main>
+
+			<aside>
+
+				<div>
+					<aside_header>
+						Links:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="http://sitran.org/people/alix/">Personal Page - Dr James Alix</a></li>
+								<li><a href="https://www.sheffield.ac.uk/acse/people/vk">Personal Page - Professor Visakan Kadirkamanathan</a></li>
+								<li><a href="https://www.sheffield.ac.uk/">University of Sheffield (UoS)</a></li>
+								<li><a href="https://www.sheffield.ac.uk/it-services/research">UoS - It Services/Research IT</a></li>
+							</ul>
+						</p>
+					</aside_body>
+				</div>
+				<hr/>
+				<div>
+
+					<aside_header>
+						References:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="https://annals.org/AIM/FULLARTICLE/2762808/INCUBATION-PERIOD-CORONAVIRUS-DISEASE-2019-COVID-19-FROM-PUBLICLY-REPORTED">Lauer, Stephen A., et al., Annals of Internal Medicine (2020).</a></li>
+
+								<li><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2001316">Li, Qun, et al., New England Journal of Medicine (2020).</a></li>
+
+								<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/32064853">Novel, Coronavirus Pneumonia Emergency Response Epidemiology., Zhonghua liuxingbingxue zazhi 41.2 (2020): 145.</a></li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+				<hr/>
+				<div>
+					<aside_header>
+						Contact:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr James Alix</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+				<hr/>
+				<div>
+					<aside_header>
+						Acknowledgement:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr Daniel Blackburn</li>
+								<li>Dr Norbert Gyenge</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+			</aside>
+
+		</section>
+
+		<footer>
+
+		</footer>
+
+	<script>
+	function opentab(evt, cityName)
+		{
+			  var i, tabcontent, tablinks;
+
+			  tabcontent = document.getElementsByClassName("tabcontent");
+
+			  for (i = 0; i < tabcontent.length; i++)
+			  	{
+			    	tabcontent[i].style.display = "none";
+			  	}
+
+			  tablinks = document.getElementsByClassName("tablinks");
+
+			  for (i = 0; i < tablinks.length; i++)
+				  {
+				    	tablinks[i].className = tablinks[i].className.replace(" active", "");
+				  }
+
+			  document.getElementById(cityName).style.display = "block";
+
+			  evt.currentTarget.className += " active";
+			}
+
+	</script>
+
+	</body>
+
+</html>
+
+
+
+
+

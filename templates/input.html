@@ -1,0 +1,223 @@
+<!doctype html>
+
+	<head>
+	    <title>
+	    	Covid-19: Test Your Rota
+	    </title>
+
+		<link rel="shortcut icon" href="/static/logo/cov_logo2.png" />
+
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	</head>
+
+	<body>
+
+		<header>
+			<section id="pageContent">
+				<div id="logo"><img src="/static/logo/cov_logo.png"> <a href="/">COVID-19: Simulate Staffing Levels</a></div>
+			</section>
+		</header>
+
+		<section id="pageContent">
+			<main role="main">
+
+				<block>
+
+				<block>
+
+					<table id="header_table">
+						<tbody>
+							<tr>
+								<td rowspan="2"><div id="logo_pic"><img src="/static/logo/TUOS.png"></div> </td>
+								<td><h1>Model Input</h1></td>
+							</tr>
+
+							<tr>
+								<td><h4>Parameters (1/2)</h4></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</block>		
+
+				<form method="post" id="formID">
+					<block>
+
+					    <div class='in_table'>
+
+							<block>	
+
+									<h2>Mandatory parameters</h2> 
+
+									<p>First, you may calculate a daily infection rate among your staff by using our <a href="/estimate_infection_rate" target="_blank".</p><u>Infection Rate Estimation Tool</u></a>.
+
+							</block>	
+
+							<block>								
+
+									<p><b>Shift length</b> relates to the shift pattern. If your shifts are based around the 7-day working week then enter shift length as <i>7</i>, even if you are not working for 7 days straight. You can then enter the number of days off per shift later.</p>
+
+							</block>	
+
+							<block>	
+
+									<p>The <b>number of areas</b> can relate to physical areas e.g. covering two wards would be equal to <i>2</i>. Or it might relate to different shifts e.g. day, evening and night equal to <i>3</i>.</p>
+
+							</block>	
+
+							<block>	
+
+ 									<p>If you have calculated a <b>daily infection rate</b>, enter that value into the box <i>Daily Infection Rate – Off Work</i>. If you have not calculated a daily infection rate, then you can enter value of your choosing for the off-work period. See the box below for what happens with different daily rates over time. For more guidance please see our <div class="hover_img"> <a href="#"><u>Infection Rate Table</u><span><img src="static/tab1.png"/></span></a>.</div></p>
+
+							</block>	
+
+							<div class=in_row>
+								<div class='in_cell_label'>Total Number of Staff:</div>
+								<div class='in_cell_input'><input name="par1" value="39"></div>
+							</div>
+
+							<div class=in_row>
+								<div class='in_cell_label'>Length of Shifts [days]:</div>
+								<div class='in_cell_input'><input name="par2" value="10"></div>
+							</div>
+
+							<div class=in_row>
+								<div class='in_cell_label'>Number of Areas:</div>
+								<div class='in_cell_input'><input name="par3" value="4"></div>
+							</div>
+
+							<div class=in_row>
+								<div class='in_cell_label'>Daily Infection Rate - Off Work [%]:&nbsp;</div>
+								<div class='in_cell_input'><input name="par4" value="1.5"></div>
+							</div>
+
+							<block></block>
+							<block>	
+
+									<h2>Optional parameters</h2>
+									
+									<p>If you have a <b>critical area</b> you can specify which area that is here. You can only have one critical area. The number that you enter tells the model which area is critical e.g. if the first area, enter <i>1</i>, if its the second area, enter <i>2</i>. Also enter the <b>critical number of staff</b> (the minimum number of staff required) for that critical area. Both parameters must be provided at the same time. If you do not have them leave <i>None</i>.</p>
+
+							</block>
+
+							<div class=in_row>
+								<div class='in_cell_label'>Number of Critical Areas:&nbsp;</div>
+								<div class='in_cell_input'><input name="opt1" value="None"></div>
+							</div>
+
+							<div class=in_row>
+								<div class='in_cell_label'>Critical Number of Staff:&nbsp;</div>
+								<div class='in_cell_input'><input name="opt2" value="None"></div>
+							</div>
+
+					    </div>
+
+						<p>
+							{% with messages = get_flashed_messages() %}
+							  {% if messages %}
+								<ul class=flashes>
+								{% for message in messages %}
+								  <li>{{ message }}</li>
+								{% endfor %}
+								</ul>
+							  {% endif %}
+							{% endwith %}
+						</p>
+
+					    <p>
+							<input class="input" type="submit" value="Continue" id="formID">
+						</p>
+
+					</block>
+				</form>
+
+			</main>
+
+			<aside>
+
+				<div>
+					<aside_header>
+						Links:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="http://sitran.org/people/alix/">Personal Page - Dr James Alix</a></li>
+								<li><a href="https://www.sheffield.ac.uk/acse/people/vk">Personal Page - Professor Visakan Kadirkamanathan</a></li>
+								<li><a href="https://www.sheffield.ac.uk/">University of Sheffield (UoS)</a></li>
+								<li><a href="https://www.sheffield.ac.uk/it-services/research">UoS - It Services/Research IT</a></li>
+							</ul>
+						</p>
+					</aside_body>
+				</div>
+				<hr/>
+				<div>
+
+					<aside_header>
+						References:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li><a href="https://annals.org/AIM/FULLARTICLE/2762808/INCUBATION-PERIOD-CORONAVIRUS-DISEASE-2019-COVID-19-FROM-PUBLICLY-REPORTED">Lauer, Stephen A., et al., Annals of Internal Medicine (2020).</a></li>
+
+								<li><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2001316">Li, Qun, et al., New England Journal of Medicine (2020).</a></li>
+
+								<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/32064853">Novel, Coronavirus Pneumonia Emergency Response Epidemiology., Zhonghua liuxingbingxue zazhi 41.2 (2020): 145.</a></li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+				<hr/>
+				<div>
+					<aside_header>
+						Contact:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr James Alix</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+				<hr/>
+				<div>
+					<aside_header>
+						Acknowledgement:
+					</aside_header>
+
+					<aside_body>
+						<p>
+							<ul>
+								<li>Dr Daniel Blackburn</li>
+								<li>Dr Norbert Gyenge</li>
+							</ul>
+						</p>
+					</aside_body>
+
+				</div>
+
+			</aside>
+
+		</section>
+
+		<footer>
+
+		</footer>
+
+	</body>
+
+</html>
+
+
+
+
+
+
