@@ -24,7 +24,7 @@ def cov_calc(par_list, IR, DO, opt1, opt2):
     # Create arrays for the simulation output with optional parameters
     total_opt, total_col_plot_opt = [], []
 
-    for i in range(10):
+    for i in range(100):
 
         # Run the simulation
         r = engine.covid19.calc(N, n, 180, nG, home_infect, IR, DO, None, None)
