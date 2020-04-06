@@ -204,7 +204,7 @@ def input2():
         try:
 
             # Convert input to integers
-            IR = [int(request.form['IR' + str(x)]) for x in range(1, nG + 1)]
+            IR = [float(request.form['IR' + str(x)]) for x in range(1, nG + 1)]
             DO = [int(request.form['DO' + str(x)]) for x in range(1, nG + 1)]
 
             # Store the area input values as a session
