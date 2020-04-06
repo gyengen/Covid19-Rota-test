@@ -44,6 +44,8 @@
 					  <button class="tablinks" onclick="opentab(event, 'plain')"><h2>1) Simple Description</h2></button> 
 					  <button class="tablinks" onclick="opentab(event, 'detail')"><h2>2) Technical Description</h2></button>
 					  <button class="tablinks" onclick="opentab(event, 'improve')"><h2>3) Improve Staff Leveling</h2></button>
+					  <button class="tablinks" onclick="opentab(event, 'choosing')"><h2>4) Input Parameters</h2></button>
+
 					</div>
 
 				</block>
@@ -487,6 +489,215 @@
 							<img src="/static/fig/fig6.png" class='docs'>
 						</block>
 					</div>
+
+					<div id="choosing" class="tabcontent">
+
+						<block>
+
+							<h2>Choosing Input Parameters for Your Rota</h2>
+
+							<p>To run the model, <b>you need to decide on the correct input parameters</b> to give you results for your own staff rota.</p>
+
+						</block>
+
+						<block>
+
+							<h3>Example 1</h3>
+
+							<p>Staff rotate each week on a 4-week pattern (see table below). 40 doctors split across these 4 areas. They have low-risk (LR) shifts, medium-risk (MR) shifts and high-risk (HR) shifts. </p>
+
+						</block>
+
+						<block>
+
+							<p>Risk levels could be determined on: </p>
+
+							<ul>
+								<li>The <b>type of work the staff are doing</b> (e.g. acute work with symptomatic patients vs general face to face clinics), </li>
+								<li>The <b>length and time of the shifts</b> (e.g. standard day shift = low-risk, long day shift = medium-risk, night shift = high-risk). </li>
+
+							</ul>
+						</block>
+
+						<block>
+
+							<p>We need to decide on <b>daily infection rates</b> for all types of shift, let’s say:</p>
+
+							<ul>
+								<li>6% for high risk, 4% for medium risk and 2% for low risk, with a 0.5% background rate during days off work.  </li>
+								
+							</ul>
+
+						</block>
+
+						<block>
+
+							<p>You can determine these as you see fit, maybe you have <b>actual data from your ward</b>.</p>
+
+						</block>
+
+						<block>
+
+							<table class='doc_table'>
+								<tbody>
+									<tr>
+										<td></td>									
+										<td><b>Mon</b></td>
+										<td><b>Tue</b></td>
+										<td><b>Wed</b></td>
+										<td><b>Thu</b></td>
+										<td><b>Fri</b></td>
+										<td><b>Sat</b></td>
+										<td><b>Sun</b></td>
+									</tr>
+									<tr>
+										<td>Week 1</td>
+										<td>LR</td>
+										<td>LR</td>
+										<td>LR</td>
+										<td>LR</td>
+										<td>LR</td>
+										<td>Off</td>
+										<td>Off</td>
+									</tr>
+									<tr>
+										<td>Week 2</td>
+										<td>MR</td>
+										<td>MR</td>
+										<td>MR</td>
+										<td>MR</td>
+										<td>MR</td>
+										<td>Off</td>
+										<td>Off</td>
+									</tr>
+									<tr>
+										<td>Week 3</td>
+										<td>HR</td>
+										<td>HR</td>
+										<td>HR</td>
+										<td>HR</td>
+										<td>HR</td>
+										<td>HR</td>
+										<td>HR</td>
+									</tr>
+									<tr>
+										<td>Week 4</td>
+										<td>Off</td>
+										<td>Off</td>
+										<td>Off</td>
+										<td>Off</td>
+										<td>Off</td>
+										<td>Off</td>
+										<td>Off</td>
+									</tr>
+								</tbody>
+							</table>
+							
+						</block>
+
+
+						<block>
+
+							<p>The input parameters for this rota would be as follows.</p>
+
+							<ul>
+								<li><b>Total Number of Staff</b>: 40</li>
+								<li><b>Rotation length [days]</b>: 7</li>
+								<li><b>Number of Areas</b>: 4</li>
+								<li><b>Daily Infection Rate – Off Work [%]</b>: 0.5</li>
+								<li><b>Daily Infection Rate at Work</b> [%] (Area 1-2-3-4): 2-4-6-0.5</li>
+								<li><b>Days off within rotation</b> (Area 1-2-3-4): 2-2-0-7</li>
+							</ul>
+
+						</block>
+						<block>
+
+							<p>If there is a <b>specific Area</b> of work that is crucial to maintain you could select this as the critical area, and chose the number of staff you need to sustain functionality. So, in this example the critical area may be the high-risk work, so Area 3. And let’s say we need 6 staff working to keep it running. We would then enter.</p>
+
+							<ul>
+								<li>Critical Area: 3</li>
+								<li>Critical Staff Number: 6</li>
+							</ul>
+
+						</block>
+
+						</block>
+
+
+							<p>The model will then <b>redistribute staff into Area 3</b> in order to always maintain 6 staff where possible.</p>
+
+						</block>
+
+
+						<block>
+
+							<h3>Example 2</h3>
+
+							<p>A more complicated rota. Staff rotate on a <b>2-week pattern</b> where each Area (week block of work) has a combination of different shift types. </p>
+
+						</block>
+
+						<block>
+							<table class='doc_table'>
+								<tbody>
+									<tr>
+										<td></td>									
+										<td><b>Mon</b></td>
+										<td><b>Tue</b></td>
+										<td><b>Wed</b></td>
+										<td><b>Thu</b></td>
+										<td><b>Fri</b></td>
+										<td><b>Sat</b></td>
+										<td><b>Sun</b></td>
+									</tr>
+									<tr>
+										<td>Week 1</td>
+										<td>LR</td>
+										<td>LR</td>
+										<td>Off</td>
+										<td>HR</td>
+										<td>HR</td>
+										<td>HR</td>
+										<td>Off</td>
+									</tr>
+									<tr>
+										<td>Week 2</td>
+										<td>HR</td>
+										<td>HR</td>
+										<td>MR</td>
+										<td>MR</td>
+										<td>MR</td>
+										<td>Off</td>
+										<td>HR</td>
+									</tr>
+								</tbody>
+							</table>
+							
+						</block>
+
+						<block>
+
+							<p>Since Area 1 and Area 2 <b>don’t have a consistent at Work infection rate</b>, we need to calculate the average over the week. So, Area 1 has two low-risk shifts and 3 high-risk shifts. Using the risk values from example 1, this gives an average at work infection rate of 4.4% for area 1 (week 1 in the table). Area 2 has 3 high-risk shifts and 3 medium-risk shifts, giving an average of 5%.</p>
+
+						</block>
+
+						<block>
+
+							<p>The input parameters would then be as follows:.</p>
+
+							<ul>
+								<li><b>Total Number of Staff</b>: 40</li>
+								<li><b>Rotation length [days]</b>: 7</li>
+								<li><b>Number of Areas</b>: 2</li>
+								<li><b>Daily Infection Rate – Off Work [%]</b>: 0.5</li>
+								<li><b>Daily Infection Rate at Work [%] </b>(Area 1-2): 4.4-5</li>
+								<li><b>Days off within rotation</b> (Area 1-2): 2-1</li>
+							</ul>
+
+						</block>
+
+					</div>
+
 				</block>
 			</main>
 

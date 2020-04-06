@@ -22,6 +22,12 @@ def calc(N, n, T, nG, home_infect, each, DAYoff, n_key, lim):
     incub_store = [0 for x in range(N)]
     groups = ['AREA 1', 'AREA 2', 'AREA 3', 'AREA 4', 'AREA 5', 'AREA 6', 'AREA 7', 'AREA 8']
     time_off = ['off 1', 'off 2', 'off 3', 'off 4', 'off 5', 'off 6', 'off 7', 'off 8']
+
+
+    groups = ['AREA ' + str(x+1) for x in range(len(each))] #2d list of all staff members, with their avaialibilty over the time period
+    time_off = ['off ' + str(x+1)  for x in range(len(each))] #Corresponding list to show what AREA each staff member is in on each day 
+
+
     incubation = [2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 8, 8, 8, 9, 9, 10, 11, 12]
     def when_infect(p, p_off):
         infect = -100
@@ -31,11 +37,11 @@ def calc(N, n, T, nG, home_infect, each, DAYoff, n_key, lim):
             for b in range(nG):
                 if(infect<0):
                     for i in range(start*n, (start+1)*n - off[b]):
-                        if (random.randint(0,100) < p[b]):
+                        if (random.randint(0,100000) <1000* p[b]):
                             if(infect<0):
                                    infect = i
                     for i in range((start+1)*n - off[b], (start+1)*n):
-                        if (random.randint(0,100) < p_off[b]):
+                        if (random.randint(0,100000) <1000* p_off[b]):
                             if(infect<0):
                                    infect = i
                 start+=1
@@ -204,7 +210,7 @@ def calc(N, n, T, nG, home_infect, each, DAYoff, n_key, lim):
                         if(infection_day[saver[x]]!='never'):
                             if(y < infection_day[saver[x]]):
 
-                                if (random.randint(0,100) < perc[n_key-1]):
+                                if (random.randint(0,100000) <1000* perc[n_key-1]): 
                                     incub = incub_store[saver[x]]
                                     inc = 0.17 / 28
                                     for k in range(1, incub):
@@ -221,7 +227,7 @@ def calc(N, n, T, nG, home_infect, each, DAYoff, n_key, lim):
                                                 person[saver[x]][k]= 0.97
 
                         else:
-                            if (random.randint(0,100) < perc[n_key-1]):
+                            if (random.randint(0,100000) <1000* perc[n_key-1]): 
                                 incub = incub_store[saver[x]]
                                 inc = 0.17 / 28
                                 for k in range(1, incub):
